@@ -31,6 +31,7 @@ namespace TAMunkalap
                 XmlDocument output = new XmlDocument();
                 output.LoadXml(xml);
                 output.Save("company.xml");
+                
                 this.Close();
             }
             else
@@ -41,6 +42,11 @@ namespace TAMunkalap
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CreateCompany_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Search
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Search";
+            this.ClientSize = new System.Drawing.Size(568, 261);
+            this.Name = "Search";
+            this.Text = "Keresés";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

@@ -14,6 +14,7 @@ namespace TAMunkalap
 {
     public partial class Form1 : Form
     {
+        public static NewCustomer create_customer = new NewCustomer();
         public Form1()
         {
             InitializeComponent();
@@ -30,6 +31,11 @@ namespace TAMunkalap
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
             try
             {
                 XDocument readCompany = XDocument.Load("company.xml");
@@ -39,13 +45,31 @@ namespace TAMunkalap
                 {
                     listBox1.Items.Add((string)ceg.nev.Value);
                     listBox1.Items.Add((string)ceg.cim.Value);
-                    listBox1.Items.Add((string)ceg.tel.Value);
-                    listBox1.Items.Add((string)ceg.mail.Value);
+                    listBox1.Items.Add((string)ceg.tel.Value + " - " + (string)ceg.mail.Value);
                     listBox1.Items.Add((string)ceg.web.Value);
+                }
+
+                if (!File.Exists("costumers.xml"))
+                {
+                    XDocument readCostumers = XDocument.Load("costumers.xml");
+                    var p = from d in readCostumers.Descendants("costumer")
+                            select new { nev = d.Attribute("name"), cim = d.Attribute("address"), tel = d.Attribute("telephone"), rendszam = d.Attribute("id"), tipus = d.Attribute("type") };
+                    foreach (var ugyfel in p)
+                    {
+                        listBox2.Items.Add((string)ugyfel.nev.Value + " - " + (string)ugyfel.rendszam.Value);
+                    }
                 }
             }
             catch { }
             finally { }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+
+            create_customer.ShowDialog();
+        }
+      
     }
 }
