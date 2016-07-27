@@ -38,7 +38,8 @@ namespace TAMunkalap
             }
             if (textBox1.Text != String.Empty && textBox2.Text != String.Empty && textBox3.Text != String.Empty && textBox4.Text != String.Empty && textBox5.Text != String.Empty)
             {
-                try {
+                try
+                {
                     XDocument registrated = XDocument.Load("costumers.xml");
                     var q = from d in registrated.Descendants("costumers")
                             where (string)d.Attribute("id") == textBox4.Text.ToString()
@@ -50,7 +51,16 @@ namespace TAMunkalap
                     }
                     if (van != string.Empty)
                     {
-                        //throw new LetezoFelhasznalonevException();
+                        throw new LetezoRendszamException();
+                        string message = "Már regisztrált rendszám!";
+                        string caption = "Adminstrációs hiba!";
+                        MessageBoxButtons buttons = MessageBoxButtons.OK;
+                        DialogResult result = MessageBox.Show(message, caption, buttons);
+                        if (result == DialogResult.OK)
+                        {
+                            this.Close();
+                        }
+                        
                     }
                     XmlDocument forras = new XmlDocument();
                     forras.Load("costumers.xml");
@@ -73,10 +83,18 @@ namespace TAMunkalap
                     costumer.Attributes.Append(tipus);
                     costumers.AppendChild(costumer);
                     forras.Save("costumers.xml");
+                    this.Close();
 
                 }
                 catch { }
                 finally { }
+            }
+            else
+            {
+                string message = "Kevés adatot adtál meg, tölts ki minden mezőt!";
+                string caption = "Adminstrációs hiba!";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result = MessageBox.Show(message, caption, buttons);
             }
         }
     }

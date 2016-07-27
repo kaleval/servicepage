@@ -36,20 +36,30 @@ namespace TAMunkalap
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            try {
+                    XDocument readCompany = XDocument.Load("company.xml");
+                    var q = from d in readCompany.Descendants("company")
+                            select new { nev = d.Attribute("name"), cim = d.Attribute("address"), tel = d.Attribute("telephone"), mail = d.Attribute("email"), web = d.Attribute("webpage") };
+                    foreach (var ceg in q)
+                    {
+                        listBox1.Items.Add((string)ceg.nev.Value);
+                        listBox1.Items.Add((string)ceg.cim.Value);
+                        listBox1.Items.Add((string)ceg.tel.Value + " - " + (string)ceg.mail.Value);
+                        listBox1.Items.Add((string)ceg.web.Value);
+                    }
+            }
+            catch { }
+            finally { }
+            ReadCostumers();
+        }
+        private void ReadCostumers()
+        {
+            listBox2.Items.Clear();
             try
             {
-                XDocument readCompany = XDocument.Load("company.xml");
-                var q = from d in readCompany.Descendants("company")
-                        select new { nev = d.Attribute("name"), cim = d.Attribute("address"), tel = d.Attribute("telephone"), mail = d.Attribute("email"), web = d.Attribute("webpage") };
-                foreach (var ceg in q)
-                {
-                    listBox1.Items.Add((string)ceg.nev.Value);
-                    listBox1.Items.Add((string)ceg.cim.Value);
-                    listBox1.Items.Add((string)ceg.tel.Value + " - " + (string)ceg.mail.Value);
-                    listBox1.Items.Add((string)ceg.web.Value);
-                }
+               
 
-                if (!File.Exists("costumers.xml"))
+                if (File.Exists("costumers.xml"))
                 {
                     XDocument readCostumers = XDocument.Load("costumers.xml");
                     var p = from d in readCostumers.Descendants("costumer")
@@ -69,6 +79,49 @@ namespace TAMunkalap
 
 
             create_customer.ShowDialog();
+        }
+
+        private void kilépésToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ReadCostumers();
+        }
+
+        private void listBox2_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+
+                XDocument readCompany = XDocument.Load("company.xml");
+                var q = from d in readCompany.Descendants("company")
+                        select new { nev = d.Attribute("name"), cim = d.Attribute("address"), tel = d.Attribute("telephone"), mail = d.Attribute("email"), web = d.Attribute("webpage") };
+                foreach (var ceg in q)
+                {
+                    //paraméterek beolvasása változóba
+                   
+
+                    if (File.Exists("costumers.xml"))
+                    {
+                        XDocument readCostumers = XDocument.Load("costumers.xml");
+                        var p = from d in readCostumers.Descendants("costumer")
+                                select new { nev = d.Attribute("name"), cim = d.Attribute("address"), tel = d.Attribute("telephone"), rendszam = d.Attribute("id"), tipus = d.Attribute("type") };
+                        foreach (var ugyfel in p)
+                        {
+                            //paranlterek beolvasása változóba
+                        }
+                    }
+                }
+                //munkalap sorszám generálás
+
+                //munkalap form meghívása felparaméterezve
+
+            }
+            catch { }
+            finally { }
         }
       
     }

@@ -56,6 +56,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LetezoRendszamException.cs" />
     <Compile Include="NewCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +92,9 @@
     <EmbeddedResource Include="NewCustomer.resx">
       <DependentUpon>NewCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewWorkSheet.resx">
+      <DependentUpon>NewWorkSheet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -102,6 +106,9 @@
     </Compile>
     <EmbeddedResource Include="Search.resx">
       <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkSheet.resx">
+      <DependentUpon>WorkSheet.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
