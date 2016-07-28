@@ -51,6 +51,7 @@ namespace TAMunkalap
             catch { }
             finally { }
             ReadCostumers();
+            
         }
         private void ReadCostumers()
         {
@@ -122,6 +123,18 @@ namespace TAMunkalap
             }
             catch { }
             finally { }
+        }
+        private void NewWorkSheet()
+        {
+           
+
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            NewWorkSheet worksheet = new NewWorkSheet();
+            worksheet.Show();
         }
       
     }

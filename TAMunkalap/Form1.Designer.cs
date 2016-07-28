@@ -48,6 +48,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 39);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(292, 121);
+            this.listBox1.Size = new System.Drawing.Size(292, 82);
             this.listBox1.TabIndex = 0;
             // 
             // button1
@@ -222,11 +223,22 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "label4";
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(12, 127);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(292, 84);
+            this.button6.TabIndex = 15;
+            this.button6.Text = "Új üres munkalap";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 617);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button5);
@@ -275,6 +287,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button6;
     }
 }
 
