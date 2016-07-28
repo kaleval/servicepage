@@ -35,8 +35,15 @@ namespace TAMunkalap
                 catch { }
                 finally { }
             }
-            Application.Run(new Form1());
-            
+            try
+            {
+
+                Application.Run(new Form1());
+            }
+            catch (ObjectDisposedException)
+            {
+                MessageBox.Show("Következő indításnál adjon meg cégadatokat!");
+            }
         }
     }
 }

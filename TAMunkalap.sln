@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAMunkalap", "TAMunkalap\TAMunkalap.csproj", "{D08A1203-A8D2-43C6-A4DE-7861D1DC3BEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfSharp", "..\..\..\Desktop\PDFsharp\code\PdfSharp\PdfSharp.csproj", "{5384CE57-1F94-4D22-860D-2E9C1AC12DDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "..\..\..\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{9DF9C2C5-5BD8-4567-A46D-82E81352E2F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{D08A1203-A8D2-43C6-A4DE-7861D1DC3BEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D08A1203-A8D2-43C6-A4DE-7861D1DC3BEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D08A1203-A8D2-43C6-A4DE-7861D1DC3BEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5384CE57-1F94-4D22-860D-2E9C1AC12DDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5384CE57-1F94-4D22-860D-2E9C1AC12DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5384CE57-1F94-4D22-860D-2E9C1AC12DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5384CE57-1F94-4D22-860D-2E9C1AC12DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DF9C2C5-5BD8-4567-A46D-82E81352E2F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DF9C2C5-5BD8-4567-A46D-82E81352E2F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DF9C2C5-5BD8-4567-A46D-82E81352E2F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DF9C2C5-5BD8-4567-A46D-82E81352E2F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
