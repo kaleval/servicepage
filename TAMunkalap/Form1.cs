@@ -134,7 +134,7 @@ namespace TAMunkalap
 
         private void button6_Click(object sender, EventArgs e)
         {
-            WindowsFormsApplication1.Form1 ablak = new WindowsFormsApplication1.Form1();
+            WindowsFormsApplication1.Form1 ablak = new WindowsFormsApplication1.Form1((string)listBox1.Items[0], (string)listBox1.Items[1], (string)listBox1.Items[2], (string)listBox1.Items[3]);
             ablak.Show();
             //NewWorkSheet worksheet = new NewWorkSheet();
             //worksheet.Show();

@@ -79,7 +79,7 @@
             this.segítségToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(900, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(313, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,7 +94,7 @@
             // kilépésToolStripMenuItem
             // 
             this.kilépésToolStripMenuItem.Name = "kilépésToolStripMenuItem";
-            this.kilépésToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.kilépésToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.kilépésToolStripMenuItem.Text = "Kilépés";
             this.kilépésToolStripMenuItem.Click += new System.EventHandler(this.kilépésToolStripMenuItem_Click);
             // 
@@ -108,8 +108,9 @@
             // 
             // keresésToolStripMenuItem
             // 
+            this.keresésToolStripMenuItem.Enabled = false;
             this.keresésToolStripMenuItem.Name = "keresésToolStripMenuItem";
-            this.keresésToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.keresésToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.keresésToolStripMenuItem.Text = "Keresés";
             // 
             // segítségToolStripMenuItem
@@ -120,6 +121,7 @@
             // 
             // listBox2
             // 
+            this.listBox2.Enabled = false;
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(313, 102);
             this.listBox2.Name = "listBox2";
@@ -130,6 +132,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Enabled = false;
             this.label1.Location = new System.Drawing.Point(310, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
@@ -138,6 +141,7 @@
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(313, 52);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -148,6 +152,7 @@
             // 
             // button3
             // 
+            this.button3.Enabled = false;
             this.button3.Location = new System.Drawing.Point(391, 52);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
@@ -157,6 +162,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(472, 75);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
@@ -165,6 +171,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Enabled = false;
             this.label2.Location = new System.Drawing.Point(469, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
@@ -173,6 +180,7 @@
             // 
             // button4
             // 
+            this.button4.Enabled = false;
             this.button4.Location = new System.Drawing.Point(313, 75);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
@@ -183,6 +191,7 @@
             // 
             // listBox3
             // 
+            this.listBox3.Enabled = false;
             this.listBox3.FormattingEnabled = true;
             this.listBox3.Location = new System.Drawing.Point(623, 102);
             this.listBox3.Name = "listBox3";
@@ -192,6 +201,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Enabled = false;
             this.label3.Location = new System.Drawing.Point(620, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
@@ -200,6 +210,7 @@
             // 
             // button5
             // 
+            this.button5.Enabled = false;
             this.button5.Location = new System.Drawing.Point(623, 73);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
@@ -209,6 +220,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(704, 75);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(184, 20);
@@ -217,6 +229,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Enabled = false;
             this.label4.Location = new System.Drawing.Point(623, 56);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
@@ -237,7 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 617);
+            this.ClientSize = new System.Drawing.Size(313, 230);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox2);

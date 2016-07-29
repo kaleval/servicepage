@@ -22,8 +22,21 @@ namespace WindowsFormsApplication1
             label8.Text = System.DateTime.Today.ToShortDateString();
           
         }
+        public Form1(string cegNev, string cegCim, string cegTel, string cegMail)
+        {
+            InitializeComponent();
+            label1.Text = cegNev;
+            label2.Text = cegCim;
+            label3.Text = cegTel + " - " + cegMail;
+            label8.Text = System.DateTime.Today.ToShortDateString();
 
-       
+        }
+        public Form1(string cegNev, string cegCim, string cegTel, string cegMail, string ugyfelNev, string ugyfelTipus, string ugyfelRendszam)
+        {
+            InitializeComponent();
+            label8.Text = System.DateTime.Today.ToShortDateString();
+
+        }
        
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,7 +73,7 @@ namespace WindowsFormsApplication1
 
 
 
-            gfx.DrawImage(XImage.FromFile(@"C:\\Users\\havas\\Documents\\Visual Studio 2015\\Projects\\WindowsFormsApplication1\\WindowsFormsApplication1\\bin\\Debug\\Ok.PNG"), 10, 5, 90, 90);
+            //gfx.DrawImage(XImage.FromFile(@"C:\\Users\\havas\\Documents\\Visual Studio 2015\\Projects\\WindowsFormsApplication1\\WindowsFormsApplication1\\bin\\Debug\\Ok.PNG"), 10, 5, 90, 90);
             gfx.DrawRectangle(pen, log);
             // gfx.DrawRectangle(pen, cegnev);
             // gfx.DrawRectangle(pen, teleph);
@@ -78,6 +91,7 @@ namespace WindowsFormsApplication1
 
 
             doc.Save("Teszt.pdf");
+            MessageBox.Show("Mentés kész!");
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -88,6 +102,30 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox1.Text == "Ügyfél név")
+            {
+                textBox1.Text = String.Empty;
+            }
+        }
+
+        private void textBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox2.Text == "Gépjármű - Rendszám")
+            {
+                textBox2.Text = String.Empty;
+            }
+        }
+
+        private void textBox3_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox3.Text == "KM-óra állása")
+            {
+                textBox3.Text = String.Empty;
+            }
         }
     }
 }
