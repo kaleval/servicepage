@@ -10,6 +10,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace TAMunkalap
 {
     public partial class Form1 : Form
@@ -133,8 +134,10 @@ namespace TAMunkalap
 
         private void button6_Click(object sender, EventArgs e)
         {
-            NewWorkSheet worksheet = new NewWorkSheet();
-            worksheet.Show();
+            WindowsFormsApplication1.Form1 ablak = new WindowsFormsApplication1.Form1();
+            ablak.Show();
+            //NewWorkSheet worksheet = new NewWorkSheet();
+            //worksheet.Show();
         }
       
     }
