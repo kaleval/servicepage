@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             label1.Text = cegNev;
             label2.Text = cegCim;
-            label3.Text = cegTel + " - " + cegMail;
+            label3.Text = cegTel + "\r\n" + cegMail;
             label8.Text = System.DateTime.Today.ToShortDateString();
 
         }
@@ -52,9 +52,9 @@ namespace WindowsFormsApplication1
             PdfDocument doc = new PdfDocument();
             PdfPage page1 = doc.AddPage();
             XGraphics gfx = XGraphics.FromPdfPage(page1);
-            XFont font = new XFont("Verdana", 14, XFontStyle.Bold);
-            XFont font2 = new XFont("Verdana", 14, XFontStyle.Regular);
-            XFont font3 = new XFont("Verdana", 12, XFontStyle.Regular);
+            XFont font = new XFont("Microsoft Sans Serif", 12, XFontStyle.Bold);
+            XFont font2 = new XFont("Microsoft Sans Serif", 9, XFontStyle.Regular);
+            XFont font3 = new XFont("Microsoft Sans Serif", 8, XFontStyle.Regular);
             XPen pen = new XPen(XColor.FromKnownColor(XKnownColor.Black), 1);
             PdfSharp.Drawing.Layout.XTextFormatter tf = new PdfSharp.Drawing.Layout.XTextFormatter(gfx);
 
@@ -69,27 +69,37 @@ namespace WindowsFormsApplication1
             Point bam = new Point(5, 837);
             Point jam = new Point(590, 837);
             Rectangle log = new Rectangle(5, 5, 130, 90);
-            Rectangle cegnev = new Rectangle(135, 5, 220, 30);
-            Rectangle teleph = new Rectangle(135, 35, 220, 30);
-            Rectangle nyit = new Rectangle(135, 65, 220, 30);
+            Rectangle cegnev = new Rectangle(145, 15, 220, 30);
+            Rectangle teleph = new Rectangle(145, 35, 220, 30);
+            Rectangle nyit = new Rectangle(145, 55, 220, 30);
             Rectangle ugyf = new Rectangle(355, 5, 235, 30);
             Rectangle rendsz = new Rectangle(355, 35, 235, 30);
             Rectangle km = new Rectangle(355, 65, 235, 30);
             Rectangle ceg = new Rectangle(135, 5, 455, 90);
-            Rectangle hiba = new Rectangle(5, 95, 585, 30);
-            Rectangle hibali = new Rectangle(5, 125, 585, 150);
-            Rectangle hibalim = new Rectangle(8, 125, 585, 150);
-            Rectangle munka = new Rectangle(5, 275, 585, 30);
-            Rectangle munkali = new Rectangle(5, 305, 585, 150);
-            Rectangle munkalim = new Rectangle(8, 305, 585, 150);
-            Rectangle alkat = new Rectangle(5, 455, 585, 30);
-            Rectangle alkatli = new Rectangle(5, 485, 585, 150);
-            Rectangle alkatlim = new Rectangle(8, 485, 585, 150);
-            Rectangle szer = new Rectangle(5, 645, 130, 30);
-            Rectangle szerv = new Rectangle(5, 675, 130, 30);
-            Rectangle al = new Rectangle(5, 787, 330, 30);
-            Rectangle kelt = new Rectangle(5, 817, 230, 30);
-            Rectangle al2 = new Rectangle(305, 787, 330, 30);
+            
+            Rectangle hiba = new Rectangle(5, 95, 585, 15);
+            Rectangle munka = new Rectangle(5, 275, 585, 15);
+            Rectangle alkat = new Rectangle(5, 455, 585, 15);
+           
+
+            Rectangle hibali = new Rectangle(5, 110, 585, 165);
+            Rectangle hibalim = new Rectangle(10, 110, 585, 165);
+            Rectangle munkali = new Rectangle(5, 290, 585, 165);
+            Rectangle munkalim = new Rectangle(10, 290, 585, 165);
+
+            Rectangle alkatli = new Rectangle(5, 470, 585, 165);
+            Rectangle alkatlim = new Rectangle(10, 470, 585, 165);
+
+
+           
+            
+           
+            
+            Rectangle szer = new Rectangle(15, 645, 130, 30);
+            Rectangle szerv = new Rectangle(15, 675, 130, 30);
+            Rectangle al = new Rectangle(15, 787, 330, 30);
+            Rectangle kelt = new Rectangle(15, 817, 230, 30);
+            Rectangle al2 = new Rectangle(435, 787, 330, 30);
 
 
 
@@ -104,28 +114,29 @@ namespace WindowsFormsApplication1
             // gfx.DrawRectangle(pen, teleph);
             // gfx.DrawRectangle(pen, nyit);
             gfx.DrawRectangle(pen, ceg);
-            gfx.DrawString(label1.Text, font, XBrushes.Black, cegnev, XStringFormat.Center);
-            gfx.DrawString(label2.Text, font, XBrushes.Black, teleph, XStringFormat.Center);
-            gfx.DrawString(label3.Text, font, XBrushes.Black, nyit, XStringFormat.Center);
+            gfx.DrawString(label1.Text, font, XBrushes.Black, cegnev, XStringFormat.TopLeft);
+            gfx.DrawString(label2.Text, font2, XBrushes.Black, teleph, XStringFormat.TopLeft);
+            tf.DrawString(label3.Text, font3, XBrushes.Black, nyit, XStringFormat.TopLeft);
+            
             gfx.DrawRectangle(pen, ugyf);
-            gfx.DrawString(textBox1.Text, font, XBrushes.Black, ugyf, XStringFormat.Center);
+            gfx.DrawString(textBox1.Text, font, XBrushes.Black, ugyf, XStringFormat.TopLeft);
             gfx.DrawRectangle(pen, rendsz);
-            gfx.DrawString(textBox2.Text, font, XBrushes.Black, rendsz, XStringFormat.Center);
+            gfx.DrawString(textBox2.Text, font2, XBrushes.Black, rendsz, XStringFormat.TopLeft);
             gfx.DrawRectangle(pen, km);
-            gfx.DrawString(textBox3.Text, font, XBrushes.Black, km, XStringFormat.Center);
+            gfx.DrawString(textBox3.Text, font2, XBrushes.Black, km, XStringFormat.TopLeft);
             gfx.DrawRectangle(pen, hiba);
             gfx.DrawRectangle(pen, hibali);
             tf.DrawString(textBox4.Text, font3, XBrushes.Black, hibalim, XStringFormat.TopLeft);
-            gfx.DrawString(label4.Text, font, XBrushes.Black, hiba, XStringFormat.Center);
+            gfx.DrawString(label4.Text, font, XBrushes.Black, hiba, XStringFormat.TopLeft);
             gfx.DrawRectangle(pen, munka);
             gfx.DrawRectangle(pen, munkali);
             tf.DrawString(textBox5.Text, font3, XBrushes.Black, munkalim, XStringFormat.TopLeft);
-            gfx.DrawString(label5.Text, font, XBrushes.Black, munka, XStringFormat.Center);
+            gfx.DrawString(label5.Text, font, XBrushes.Black, munka, XStringFormat.TopLeft);
             gfx.DrawRectangle(pen, alkat);
             gfx.DrawRectangle(pen, alkatli);
             tf.DrawString(textBox6.Text, font3, XBrushes.Black, alkatlim, XStringFormat.TopLeft);
-            gfx.DrawString(label6.Text, font, XBrushes.Black, alkat, XStringFormat.Center);
-            gfx.DrawString(label7.Text, font2, XBrushes.Black, szer, XStringFormat.Center);
+            gfx.DrawString(label6.Text, font, XBrushes.Black, alkat, XStringFormat.TopLeft);
+            gfx.DrawString(label7.Text, font2, XBrushes.Black, szer, XStringFormat.TopLeft);
             gfx.DrawString("  "+textBox7.Text, font2, XBrushes.Black, szerv, XStringFormat.TopLeft);
             gfx.DrawString(" Aláírás:...................................", font2, XBrushes.Black, al, XStringFormat.TopLeft);
             gfx.DrawString(" Kelt:"+label8.Text, font2, XBrushes.Black, kelt, XStringFormat.TopLeft);
