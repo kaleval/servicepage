@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PdfSharp;
@@ -149,8 +150,14 @@ namespace WindowsFormsApplication1
 
 
 
-            doc.Save("Teszt.pdf");
+            doc.Save(PDFNameGenerator(textBox1.Text));
             MessageBox.Show("Mentés kész!");
+        }
+        private string PDFNameGenerator(String ugyfelNeve)
+        {
+            Regex.Replace(ugyfelNeve, @"\s+", "");
+
+            return ugyfelNeve+DateTime.Now.ToString("yyyy-MM-ddTHH-mm")+".pdf";        
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
