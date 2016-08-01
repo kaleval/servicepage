@@ -19,6 +19,9 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        Rectangle hibalim = new Rectangle(10, 110, 585, 165);
+        Rectangle munkalim = new Rectangle(10, 290, 585, 165);
+        Rectangle alkatlim = new Rectangle(10, 470, 585, 165);
         public Form1()
         {
             InitializeComponent();
@@ -81,15 +84,17 @@ namespace WindowsFormsApplication1
             Rectangle hiba = new Rectangle(5, 95, 585, 15);
             Rectangle munka = new Rectangle(5, 275, 585, 15);
             Rectangle alkat = new Rectangle(5, 455, 585, 15);
-           
+
+          
+
 
             Rectangle hibali = new Rectangle(5, 110, 585, 165);
-            Rectangle hibalim = new Rectangle(10, 110, 585, 165);
+          
             Rectangle munkali = new Rectangle(5, 290, 585, 165);
-            Rectangle munkalim = new Rectangle(10, 290, 585, 165);
+           
 
             Rectangle alkatli = new Rectangle(5, 470, 585, 165);
-            Rectangle alkatlim = new Rectangle(10, 470, 585, 165);
+            
 
 
            
@@ -124,18 +129,18 @@ namespace WindowsFormsApplication1
             gfx.DrawRectangle(pen, rendsz);
             gfx.DrawString(textBox2.Text, font2, XBrushes.Black, rendsz, XStringFormat.TopLeft);
             gfx.DrawRectangle(pen, km);
-            gfx.DrawString(textBox3.Text, font2, XBrushes.Black, km, XStringFormat.TopLeft);
+            gfx.DrawString(textBox3.Text + " KM", font2, XBrushes.Black, km, XStringFormat.TopLeft);
             gfx.DrawRectangle(pen, hiba);
             gfx.DrawRectangle(pen, hibali);
-            tf.DrawString(textBox4.Text, font3, XBrushes.Black, hibalim, XStringFormat.TopLeft);
+            tf.DrawString(TextWrapper(textBox4.Text,130), font3, XBrushes.Black, hibalim, XStringFormat.TopLeft);
             gfx.DrawString(label4.Text, font, XBrushes.Black, hiba, XStringFormat.TopLeft);
             gfx.DrawRectangle(pen, munka);
             gfx.DrawRectangle(pen, munkali);
-            tf.DrawString(textBox5.Text, font3, XBrushes.Black, munkalim, XStringFormat.TopLeft);
+            tf.DrawString(TextWrapper(textBox5.Text, 130), font3, XBrushes.Black, munkalim, XStringFormat.TopLeft);
             gfx.DrawString(label5.Text, font, XBrushes.Black, munka, XStringFormat.TopLeft);
             gfx.DrawRectangle(pen, alkat);
             gfx.DrawRectangle(pen, alkatli);
-            tf.DrawString(textBox6.Text, font3, XBrushes.Black, alkatlim, XStringFormat.TopLeft);
+            tf.DrawString(TextWrapper(textBox6.Text, 130), font3, XBrushes.Black, alkatlim, XStringFormat.TopLeft);
             gfx.DrawString(label6.Text, font, XBrushes.Black, alkat, XStringFormat.TopLeft);
             gfx.DrawString(label7.Text, font2, XBrushes.Black, szer, XStringFormat.TopLeft);
             gfx.DrawString("  "+textBox7.Text, font2, XBrushes.Black, szerv, XStringFormat.TopLeft);
@@ -155,9 +160,9 @@ namespace WindowsFormsApplication1
         }
         private string PDFNameGenerator(String ugyfelNeve)
         {
-            Regex.Replace(ugyfelNeve, @"\s+", "");
 
-            return ugyfelNeve+DateTime.Now.ToString("yyyy-MM-ddTHH-mm")+".pdf";        
+
+            return Regex.Replace(ugyfelNeve, @"\s+", "")+DateTime.Now.ToString("yyyy-MM-ddTHH-mm") + ".pdf";        
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -218,5 +223,56 @@ namespace WindowsFormsApplication1
             }
             //valami
         }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            //if (textBox4.TextLength >= hibalim.Width - 1)
+            //{
+            //    textBox4.Text = textBox4.Text + "\r\n";
+            //}
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            //if (textBox5.TextLength >= munkalim.Width - 1)
+            //{
+            //    textBox5.Text = textBox5.Text + "\r\n";
+            //}
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+        //    if (textBox6.TextLength >= alkatlim.Width - 1)
+        //    {
+        //        textBox6.Text = textBox6.Text + "\r\n";
+        //    }
+        }
+        private string TextWrapper(string input, int pdfBoxWidth)
+        {
+            char[] investigate = input.ToCharArray();
+            int actualLengthOfLine = 0;
+            string output = String.Empty;
+
+            for (int i = 0; i < investigate.Length; i++)
+            {
+                if (actualLengthOfLine <= pdfBoxWidth - 2)
+                {
+                    actualLengthOfLine++ ;
+                    output = output + investigate[i];
+                }
+                else
+                {
+                    actualLengthOfLine = 0;
+                    if (investigate[i] != ' ' ) { output = output + "-\r\n" + investigate[i]; }
+                    else {output = output + "\r\n" + investigate[i];}
+                   
+                    
+                }
+            }
+                // MessageBox.Show(input.Length.ToString());
+                return output;
+        }
+
+ 
     }
 }

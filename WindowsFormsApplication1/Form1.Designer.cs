@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,6 +52,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.RichTextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -64,7 +65,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(538, 671);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 45);
             this.button1.TabIndex = 1;
@@ -83,18 +84,6 @@
             this.label4.TabIndex = 10;
             this.label4.Text = " Hiba leírása";
             // 
-            // textBox4
-            // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(9, 117);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(642, 127);
-            this.textBox4.TabIndex = 12;
-            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -111,11 +100,13 @@
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.Location = new System.Drawing.Point(9, 271);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox5.MaxLength = 1250;
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(642, 186);
             this.textBox5.TabIndex = 14;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
             // 
             // label6
@@ -134,11 +125,13 @@
             this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox6.Location = new System.Drawing.Point(9, 493);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox6.MaxLength = 800;
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(642, 82);
             this.textBox6.TabIndex = 16;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox6_KeyPress);
             // 
             // label7
@@ -155,7 +148,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(22, 607);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(171, 20);
             this.textBox7.TabIndex = 18;
@@ -164,7 +157,7 @@
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.Location = new System.Drawing.Point(9, 671);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(109, 45);
             this.button2.TabIndex = 19;
@@ -176,8 +169,8 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(101, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(100, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(243, 84);
             this.panel1.TabIndex = 6;
@@ -218,11 +211,12 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.textBox2);
             this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Location = new System.Drawing.Point(348, 2);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Location = new System.Drawing.Point(347, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(257, 84);
             this.panel3.TabIndex = 12;
@@ -231,7 +225,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox1.Location = new System.Drawing.Point(2, 2);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(253, 24);
@@ -244,7 +238,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox2.Location = new System.Drawing.Point(2, 28);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(253, 25);
@@ -257,10 +251,10 @@
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox3.Location = new System.Drawing.Point(2, 55);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(253, 27);
+            this.textBox3.Size = new System.Drawing.Size(207, 27);
             this.textBox3.TabIndex = 9;
             this.textBox3.Text = "KM-óra állása";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -273,12 +267,12 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.54077F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.45923F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 309F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 310F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 2, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, -2);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.23529F));
@@ -292,9 +286,9 @@
             this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(95, 86);
+            this.pictureBox2.Size = new System.Drawing.Size(94, 86);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
@@ -338,12 +332,31 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button3.Location = new System.Drawing.Point(136, 671);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(383, 45);
             this.button3.TabIndex = 22;
             this.button3.Text = "Mentés PDF Nyomtatás";
             this.button3.UseVisualStyleBackColor = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(9, 117);
+            this.textBox4.MaxLength = 1250;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(636, 129);
+            this.textBox4.TabIndex = 23;
+            this.textBox4.Text = "";
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(214, 61);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(23, 13);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "KM";
             // 
             // Form1
             // 
@@ -351,6 +364,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(656, 729);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -361,11 +375,10 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(672, 766);
             this.Name = "Form1";
@@ -388,7 +401,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
@@ -409,6 +421,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.RichTextBox textBox4;
+        private System.Windows.Forms.Label label10;
     }
 }
 
