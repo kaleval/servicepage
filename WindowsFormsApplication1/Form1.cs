@@ -198,6 +198,7 @@ namespace WindowsFormsApplication1
             {
                 textBox6.Text = textBox6.Text + "\r\n";
             }
+            //valami
         }
     }
 }
