@@ -19,9 +19,9 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
-        Rectangle hibalim = new Rectangle(10, 110, 585, 165);
-        Rectangle munkalim = new Rectangle(10, 290, 585, 165);
-        Rectangle alkatlim = new Rectangle(10, 470, 585, 165);
+        Rectangle hibalim = new Rectangle(10, 115, 585, 160);
+        Rectangle munkalim = new Rectangle(10, 295, 585, 160);
+        Rectangle alkatlim = new Rectangle(10, 475, 585, 160);
         public Form1()
         {
             InitializeComponent();
