@@ -79,6 +79,9 @@ namespace WindowsFormsApplication1
             Rectangle ugyf = new Rectangle(355, 5, 235, 30);
             Rectangle rendsz = new Rectangle(355, 35, 235, 30);
             Rectangle km = new Rectangle(355, 65, 235, 30);
+            Rectangle ugyf1 = new Rectangle(359, 10, 235, 30);
+            Rectangle rendsz1 = new Rectangle(359, 40, 235, 30);
+            Rectangle km1 = new Rectangle(359, 70, 235, 30);
             Rectangle ceg = new Rectangle(135, 5, 455, 90);
             
             Rectangle hiba = new Rectangle(5, 95, 585, 15);
@@ -125,11 +128,11 @@ namespace WindowsFormsApplication1
             tf.DrawString(label3.Text, font3, XBrushes.Black, nyit, XStringFormat.TopLeft);
             
             gfx.DrawRectangle(pen, ugyf);
-            gfx.DrawString(textBox1.Text, font, XBrushes.Black, ugyf, XStringFormat.TopLeft);
+            gfx.DrawString(textBox1.Text, font, XBrushes.Black, ugyf1, XStringFormat.TopLeft);
             gfx.DrawRectangle(pen, rendsz);
-            gfx.DrawString(textBox2.Text, font2, XBrushes.Black, rendsz, XStringFormat.TopLeft);
+            gfx.DrawString(textBox2.Text, font2, XBrushes.Black, rendsz1, XStringFormat.TopLeft);
             gfx.DrawRectangle(pen, km);
-            gfx.DrawString(textBox3.Text + " KM", font2, XBrushes.Black, km, XStringFormat.TopLeft);
+            gfx.DrawString(textBox3.Text + " KM", font2, XBrushes.Black, km1, XStringFormat.TopLeft);
             gfx.DrawRectangle(pen, hiba);
             gfx.DrawRectangle(pen, hibali);
             tf.DrawString(TextWrapper(textBox4.Text,130), font3, XBrushes.Black, hibalim, XStringFormat.TopLeft);
