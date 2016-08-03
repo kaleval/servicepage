@@ -158,10 +158,15 @@ namespace WindowsFormsApplication1
 
 
 
-            doc.Save(PDFNameGenerator(textBox1.Text));
-
-            MessageBox.Show("Mentés kész!");
-            SaveToFTP("195.228.45.95:921", "munkalap", "BMFnikDQB14i", PDFNameGenerator(textBox1.Text));
+           
+            try {   SaveToFTP("195.228.45.95:921", "munkalap", "BMFnikDQB14i", PDFNameGenerator(textBox1.Text));
+                    doc.Save(PDFNameGenerator(textBox1.Text));
+                }
+            catch { }
+            finally {
+                       
+                        MessageBox.Show("Mentés kész!");
+            }
         }
         private string PDFNameGenerator(String ugyfelNeve)
         {
