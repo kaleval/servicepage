@@ -12,7 +12,7 @@ using PdfSharp;
 using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using System.IO;
-
+using System.Net;
 
 
 namespace WindowsFormsApplication1
@@ -159,13 +159,23 @@ namespace WindowsFormsApplication1
 
 
             doc.Save(PDFNameGenerator(textBox1.Text));
+
             MessageBox.Show("Mentés kész!");
+            SaveToFTP("195.228.45.95:921", "munkalap", "BMFnikDQB14i", PDFNameGenerator(textBox1.Text));
         }
         private string PDFNameGenerator(String ugyfelNeve)
         {
 
 
             return Regex.Replace(ugyfelNeve, @"\s+", "")+DateTime.Now.ToString("yyyy-MM-ddTHH-mm") + ".pdf";        
+        }
+        private void SaveToFTP(String FTPServerIPPort, string ftpUsername, string ftpPassword, string FileToUpload)
+        {
+            using (WebClient client = new WebClient())
+            {
+                client.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
+                client.UploadFile("ftp://" + FTPServerIPPort + "/" + FileToUpload, "STOR", FileToUpload);
+            }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
