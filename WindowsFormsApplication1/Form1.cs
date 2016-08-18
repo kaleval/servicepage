@@ -13,7 +13,8 @@ using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using System.IO;
 using System.Net;
-
+using System.Diagnostics;
+using System.Net.NetworkInformation;
 
 namespace WindowsFormsApplication1
 {
@@ -158,15 +159,33 @@ namespace WindowsFormsApplication1
 
 
 
-           
-            try {   SaveToFTP("195.228.45.95:921", "munkalap", "BMFnikDQB14i", PDFNameGenerator(textBox1.Text));
-                    doc.Save(PDFNameGenerator(textBox1.Text));
+
+            try
+            {
+    
+                doc.Save(PDFNameGenerator(textBox1.Text));
+                if(PingHost("8.8.8.8")) SaveToFTP("195.228.45.95:921", "munkalap", "BMFnikDQB14i", PDFNameGenerator(textBox1.Text));
                 }
             catch { }
             finally {
                        
                         MessageBox.Show("Mentés kész!");
             }
+        }
+        public static bool PingHost(string nameOrAddress)
+        {
+            bool pingable = false;
+            Ping pinger = new Ping();
+            try
+            {
+                PingReply reply = pinger.Send(nameOrAddress);
+                pingable = reply.Status == IPStatus.Success;
+            }
+            catch (PingException)
+            {
+                // Discard PingExceptions and return false;
+            }
+            return pingable;
         }
         private string PDFNameGenerator(String ugyfelNeve)
         {
@@ -289,6 +308,19 @@ namespace WindowsFormsApplication1
             }
                 // MessageBox.Show(input.Length.ToString());
                 return output;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            GeneratePdf();
+            Process p = new Process();
+            p.StartInfo = new ProcessStartInfo()
+            {
+                CreateNoWindow = true,
+                Verb = "print",
+                FileName = PDFNameGenerator(textBox1.Text) //put the correct path here
+            };
+            p.Start();
         }
 
  
